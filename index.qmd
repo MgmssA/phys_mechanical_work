@@ -1,0 +1,220 @@
+{{< include _includes/_front_matter.qmd >}}
+{{< include _includes/_init_fontawesome.qmd >}} 
+{{< include _includes/_katex_macros.qmd >}} 
+{{< include _includes/_r_themes.qmd >}}
+
+
+```{ojs}
+//| eval: true
+//| echo: false
+//| output: false
+//| results: hide
+
+import {tex} from "@observablehq/tex"
+
+```
+
+## Row
+
+::: {.card .flow title="Mechanische Arbeit"}
+
+Die Definition der mechanischen Arbeit $W$ in einem thermodynamischen System ist
+
+$$
+W = - F \Delta s.
+$$
+
+Dabei ist $F$ die aufgewendete Kraft in Newton $[\newton]$ und 
+
+$$
+\Delta s = s\sub{Ende} - s\sub{Anfang}
+$$
+
+die zurückgelegte Strecke in Meter $[\meter]$ auf der $F$ angewendet worden ist.
+
+```{ojs}
+//| eval: true
+//| echo: false
+//| output: false
+//| results: hide
+
+function mechanicalWork(force, distance) {
+    return (-force * distance);
+}
+function distance(startPoint , endPoint) {
+    return (endPoint - startPoint)
+}
+
+```
+
+:::
+
+::: {.card .flow title="Eingabe"}
+
+
+```{ojs}
+
+viewof mechanicalForce = Inputs.number(
+    [-10000, 10000],
+    {
+        label: tex`F,\;\mathrm{N}:`,
+        value: 1000,
+        step: 0.1,
+        format: x => x.toFixed(1),
+        placeholder: "-10000 bis 10000"
+    }
+)
+
+viewof startPoint = Inputs.number(
+    [-100, 100],
+    {
+        label: tex`s_{\mathrm{Anfang}},\;\mathrm{m}:`,
+        value: 0,
+        step: 0.1,
+        format: x => x.toFixed(1),
+        placeholder: "-100 bis 100"
+    }
+)
+
+viewof endPoint = Inputs.number(
+    [-100, 100],
+    {
+        label: tex`s_{\mathrm{Ende}},\;\mathrm{m}:`,
+        value: 10,
+        step: 0.1,
+        format: x => x.toFixed(1),
+        placeholder: "-100 bis 100"
+    }
+)
+
+```
+
+:::
+
+::: {.card .flow title="Berechnung"}
+
+Die zurückgelegte Strecke ist 
+
+```{ojs}
+//| output: true
+//| flow: true
+
+tex.block`\Delta s = ${distance(startPoint, endPoint)},\;\mathrm{m}.`
+
+```
+
+Daraus ergibt sich die Kraft
+
+```{ojs}
+//| output: true
+//| flow: true
+
+tex.block`W = ${mechanicalWork(mechanicalForce, distance(startPoint, endPoint))},\;\mathrm{J}.`
+
+```
+
+:::
+
+## Row
+
+::: {.card .flow title="Expansionsarbeit"}
+
+Die Definition der Expansionsarbeit $W$ in einem thermodynamischen System ist
+
+$$
+W = - p \Delta V.
+$$
+
+Dabei ist $p$ der Druck in Newton $[\pascal]$ und 
+
+$$
+\Delta V = V\sub{Ende} - V\sub{Anfang}
+$$
+
+die Volumenveränderung in Cubicmeter $[\cubicmeter]$.
+
+```{ojs}
+//| eval: true
+//| echo: false
+//| output: false
+//| results: hide
+
+function expansionWork(pressure, volumeChange) {
+    return (-pressure * volumeChange);
+}
+function volumeChange(startVolume , endVolume) {
+    return (endVolume - startVolume)
+}
+
+```
+
+:::
+
+::: {.card .flow title="Eingabe"}
+
+
+```{ojs}
+
+viewof pressure = Inputs.number(
+    [-1000000, 1000000],
+    {
+        label: tex`p,\;\mathrm{Pa}:`,
+        value: 1000,
+        step: 1,
+        format: x => x.toFixed(1),
+        placeholder: "-1000 bis 1000"
+    }
+)
+
+viewof startVolume = Inputs.number(
+    [-10, 10],
+    {
+        label: tex`V_{\mathrm{Anfang}},\;\mathrm{m}^3:`,
+        value: 0,
+        step: 0.01,
+        format: x => x.toFixed(2),
+        placeholder: "-10 bis 10"
+    }
+)
+
+viewof endVolume = Inputs.number(
+    [-10, 10],
+    {
+        label: tex`V_{\mathrm{Ende}},\;\mathrm{m}^3:`,
+        value: 0.1,
+        step: 0.01,
+        format: x => x.toFixed(2),
+        placeholder: "-10 bis 10"
+    }
+)
+
+```
+
+:::
+
+::: {.card .flow title="Berechnung"}
+
+Die zurückgelegte Strecke ist 
+
+```{ojs}
+//| output: true
+//| flow: true
+
+tex.block`\Delta V = ${volumeChange(startVolume, endVolume)},\;\mathrm{m}^3.`
+
+```
+
+Daraus ergibt sich die Kraft
+
+```{ojs}
+//| output: true
+//| flow: true
+
+tex.block`W = ${expansionWork(pressure, volumeChange(startVolume, endVolume))},\;\mathrm{J}.`
+
+```
+
+:::
+
+
+
