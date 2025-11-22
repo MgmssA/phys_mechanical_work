@@ -159,7 +159,7 @@ viewof pressure = Inputs.number(
     [-1000000, 1000000],
     {
         label: tex`p,\;\mathrm{Pa}:`,
-        value: 1000,
+        value: 101325,
         step: 1,
         format: x => x.toFixed(1),
         placeholder: "-1000 bis 1000"
