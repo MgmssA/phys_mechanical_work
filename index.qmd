@@ -99,7 +99,7 @@ Die zurückgelegte Strecke ist
 //| output: true
 //| flow: true
 
-tex.block`\Delta s = ${distance(startPoint, endPoint)},\;\mathrm{m}.`
+tex.block`\Delta s = ${distance(startPoint, endPoint)}\;\mathrm{m}.`
 
 ```
 
@@ -109,7 +109,7 @@ Daraus ergibt sich die Kraft
 //| output: true
 //| flow: true
 
-tex.block`W = ${mechanicalWork(mechanicalForce, distance(startPoint, endPoint))},\;\mathrm{J}.`
+tex.block`W = ${mechanicalWork(mechanicalForce, distance(startPoint, endPoint))}\;\mathrm{J}.`
 
 ```
 
@@ -200,7 +200,7 @@ Die Volumenänderung ist
 //| output: true
 //| flow: true
 
-tex.block`\Delta V = ${volumeChange(startVolume, endVolume).toFixed(2)},\;\mathrm{m}^3.`
+tex.block`\Delta V = ${volumeChange(startVolume, endVolume).toFixed(2)}\;\mathrm{m}^3.`
 
 ```
 
@@ -210,7 +210,7 @@ Daraus ergibt sich die Arbeit
 //| output: true
 //| flow: true
 
-tex.block`W = ${expansionWork(pressure, volumeChange(startVolume, endVolume)).toFixed(1)},\;\mathrm{J}.`
+tex.block`W = ${expansionWork(pressure, volumeChange(startVolume, endVolume)).toFixed(1)}\;\mathrm{J}.`
 
 ```
 
