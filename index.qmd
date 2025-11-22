@@ -194,23 +194,23 @@ viewof endVolume = Inputs.number(
 
 ::: {.card .flow title="Berechnung"}
 
-Die zurückgelegte Strecke ist 
+Die Volumenänderung ist 
 
 ```{ojs}
 //| output: true
 //| flow: true
 
-tex.block`\Delta V = ${volumeChange(startVolume, endVolume)},\;\mathrm{m}^3.`
+tex.block`\Delta V = ${volumeChange(startVolume, endVolume).toFixed(2)},\;\mathrm{m}^3.`
 
 ```
 
-Daraus ergibt sich die Kraft
+Daraus ergibt sich die Arbeit
 
 ```{ojs}
 //| output: true
 //| flow: true
 
-tex.block`W = ${expansionWork(pressure, volumeChange(startVolume, endVolume))},\;\mathrm{J}.`
+tex.block`W = ${expansionWork(pressure, volumeChange(startVolume, endVolume)).toFixed(1)},\;\mathrm{J}.`
 
 ```
 
