@@ -103,7 +103,7 @@ tex.block`\Delta s = ${distance(startPoint, endPoint)}\;\mathrm{m}.`
 
 ```
 
-Daraus ergibt sich die Kraft
+Daraus ergibt sich die Arbeit
 
 ```{ojs}
 //| output: true
@@ -204,7 +204,7 @@ tex.block`\Delta V = ${volumeChange(startVolume, endVolume).toFixed(2)}\;\mathrm
 
 ```
 
-Daraus ergibt sich die Arbeit
+Daraus ergibt sich die Expansionsarbeit
 
 ```{ojs}
 //| output: true
